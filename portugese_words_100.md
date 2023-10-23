@@ -24,7 +24,7 @@ Pai = Father
 Como se chama o teu pai? = What is your fathers name? = "Komoo se shama oo teh-oo pai?
 
 7
-Mae = Mother
+Mãe = Mother
 A minha mãe e inglesa. = My mother is English.
 
 8
@@ -69,7 +69,7 @@ Qual e o nome do hotel? = What is the name of the hotel? ="Kwall eh oo nom doo o
 
 18
 Mundo = World
-Ela e a melhor jogadora do mundo = She is the player in the world = "Ella e a meyor shegedora doo moondoo
+Ela e a melhor jogadora do mundo. = She is the best player in the world. = "Ella e a meyor shegedora doo moondoo
 
 19
 Certeza = Certainty
@@ -137,7 +137,7 @@ Ha 5 lugares aqui. = There are 5 places here.
 
 35
 quero = I want = "Kehroo"
-Quero dois gelados, por favor = I want two ice creams, please = "Kehroo doish sheladoosh por favor"
+Quero dois gelados, por favor! = I want two ice creams, please! = "Kehroo doish sheladoosh por favor"
 
 36
 posso = I can / may I / can I
@@ -157,7 +157,7 @@ Preciso de um favor = I need a favor
 
 40
 podemos = we can / can we = "Pohdehmoosh"
-Podemos ir ao restaurante? = Can we go to the restuarant
+Podemos ir ao restaurante? = Can we go to the restuarant?
 
 41
 espera = to wait = "Oeshpehrah"
@@ -169,11 +169,11 @@ O jantar foi muito bom = Dinner was really good = "Oo shantar foi muitoo bong"
 
 43
 boa = good (feminine)
-A sopa esta boa hoje = The soup is good today = "A sopa shta boa ozh"
+A sopa esta boa hoje. = The soup is good today. = "A sopa shta boa ozh"
 
 44
 certo = correct / certain
-É certo que manaha vai chover. = It's certain that it's going to rain tomorrow.
+É certo que amanhã vai chover. = It's certain that it's going to rain tomorrow.
 
 45
 grande = big
@@ -181,7 +181,7 @@ A casa e muito grande. = The house is very big.
 
 46
 novo = new = "nohvoo"
-Ele e o novo vizinho = He is the new neighbour = "Ell eh oo nohvoo vihzihnyoo"
+Ele e o novo vizinho. = He is the new neighbour. = "Ell eh oo nohvoo vihzihnyoo"
 
 47
 otimo = great = "Ohtihmoo"
@@ -193,7 +193,7 @@ Ate logo. = Until later.
 
 49
 sem = without = "sehing"
-Sem sal. = without salt.
+Sem sal. = Without salt.
 
 50
 e = and
@@ -201,7 +201,7 @@ Eu e a joana fomos a praia. = Joana and I went to the beach.
 
 51
 mas = but = "mösh"
-Comi mas tenho fome = I ate but I'm hungry.
+Comi mas tenho fome. = I ate but I'm hungry.
 
 52
 porque = because = "poorkö"
@@ -228,7 +228,7 @@ Adeus, ate a proxima! = Goodbye, see you next time!
 
 58
 se faz favor = please = "Soe fash favor"
-Um copo de vinho, se faz favor = A glass of wine, please
+Um copo de vinho, se faz favor! = A glass of wine, please!
 
 59
 obrigado = thank you
@@ -264,7 +264,7 @@ Estou muito feliz = I'm very happy
 
 68
 Ja = already = "Sha"
-Ja vi esse film = I've already seen that film
+Ja vi esse film. = I've already seen that movie.
 
 69
 So = only / just
@@ -275,7 +275,7 @@ Agora = now = "oegohrah"
 Vou agora a loja. = I'm going to the shop now.
 
 71
-La = there
+la = there
 Fui la ontem. = I went there yesterday.
 
 72
@@ -340,8 +340,8 @@ Ontem = yesterday
 Ontem fui ao medico. = Yestday I went to the doctor.
 
 88
-Amanha = tomorrow = "ahmahnyang"
-Amanha e um novo dia. = Tomorrow is a new day.
+Amanhã = tomorrow = "ahmahnyang"
+Amanhã e um novo dia. = Tomorrow is a new day.
 
 89
 menos = less
@@ -353,7 +353,7 @@ Vou para dentro = I'm going inside
 
 91
 mal = badly = "mauhl"
-Esta mal escrito = It's written badly
+Esta mal escrito. = It's written badly.
 
 92
 pouco = a little bit
@@ -361,7 +361,7 @@ Vi um pouco do filme = I saw a little bit of the movie
 
 93
 tudo = everything / all
-esta tudo feito = It's all done
+esta tudo feito. = It's all done.
 
 94
 todos = all
@@ -381,11 +381,11 @@ Tens algo de comer? = Have you got anything to eat?
 
 98
 claro = of course
-Claro, sem problema = of course, no problem
+Claro, sem problema! = Of course, no problem!
 
 99
 ningeum = nobody
-Nao vi ninguem na rua = I don't see anyone in the street
+Nao vi ninguem na rua. = I don't see anyone on the street.
 
 100
 Comigo = with me

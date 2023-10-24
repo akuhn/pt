@@ -17,7 +17,7 @@ Boa noite! = Good night!
 
 5
 Dia = Day
-Bon Dia! = Good day! = "bong dia"
+Bom Dia! = Good day! = "bong dia"
 
 6
 Pai = Father
@@ -73,11 +73,11 @@ Ela e a melhor jogadora do mundo. = She is the best player in the world. = "Ella
 
 19
 Certeza = Certainty
-Tens a Certeza = Are you sure?
+Tens a certeza? = Are you sure?
 
 20
 Amigo = friend = "Oemehgoo"
-Ele e o meu melhor amigo. = He's my best friend.
+Ele é o meu melhor amigo. = He's my best friend.
 
 21
 Problema = Problem
@@ -157,7 +157,7 @@ Preciso de um favor = I need a favor
 
 40
 podemos = we can / can we = "Pohdehmoosh"
-Podemos ir ao restaurante? = Can we go to the restuarant?
+Podemos ir ao restaurante? = Can we go to the restaurant?
 
 41
 espera = to wait = "Oeshpehrah"
@@ -165,7 +165,7 @@ Espera ai. = wait there.
 
 42
 bom = good = "bong"
-O jantar foi muito bom = Dinner was really good = "Oo shantar foi muitoo bong"
+O jantar foi muito bom. = Dinner was very good. = "Oo shantar foi muitoo bong"
 
 43
 boa = good (feminine)
@@ -185,7 +185,7 @@ Ele e o novo vizinho. = He is the new neighbour. = "Ell eh oo nohvoo vihzihnyoo"
 
 47
 otimo = great = "Ohtihmoo"
-Estou otimo, e tu? = I'm great, how about you?
+Estou otimo, e tu? = I'm great, and you?
 
 48
 ate = until
@@ -219,8 +219,8 @@ Noa, obrigado. = No, thank you.
 sim = yes = "sing"
 
 56
-ola = hello
-Ola, commo estas? = Hello, how are you?
+olá = hello
+Olá, como estas? = Hello, how are you?
 
 57
 adeus = goodbye = "adehoosh"
@@ -252,7 +252,7 @@ Estou bem, obrigado. = I'm well, thank you.
 
 65
 mais = more = "Maheesh"
-Querio mais cerveja, por favor = I'd like more beer, please.
+Quero mais cerveja, por favor! = I'd like more beer, please!
 
 66
 aqui = here = "oekee"
@@ -260,7 +260,7 @@ Estou aqui. = I'm here.
 
 67
 muito = very
-Estou muito feliz = I'm very happy
+Estou muito feliz. = I'm very happy.
 
 68
 Ja = already = "Sha"
@@ -295,6 +295,7 @@ Entao, como estas? = Hey, how are you?
 
 76
 mesmo = same / really, really = "mehzhmoo"
+Estou mesmo cansada. = I'm really, really tired.
 
 77
 nunca = never
@@ -317,11 +318,12 @@ nem = neither / nor
 nem um, nem o outro = neither one nor the other
 
 82
-Depois = afterwards
+depois = afterwards
+depois da viagem fomos para casa. = After the trip we went home.
 
 83
-Sempre = always
-Estou sempre a esquecer-me dos oculos = I'm always forgetting my glasses
+sempre = always
+Estou sempre a esquecer-me dos oculos. = I'm always forgetting my glasses.
 
 84
 Antes = before = "aentehsh"
@@ -329,7 +331,7 @@ O que fazias antes disto? = What did you do before this?
 
 85
 Fora = outside
-Estou ca fora = I'm outside
+Estou cá fora. = I'm outside.
 
 86
 Hoje = today = "ozh"
@@ -345,11 +347,11 @@ Amanhã e um novo dia. = Tomorrow is a new day.
 
 89
 menos = less
-Hoje estou menos cansada = Today I'm less tired
+Hoje estou menos cansada. = Today I'm less tired.
 
 90
 dentro = inside
-Vou para dentro = I'm going inside
+Vou para dentro. = I'm going inside.
 
 91
 mal = badly = "mauhl"
@@ -357,7 +359,7 @@ Esta mal escrito. = It's written badly.
 
 92
 pouco = a little bit
-Vi um pouco do filme = I saw a little bit of the movie
+Vi um pouco do filme. = I saw a little bit of the movie.
 
 93
 tudo = everything / all
@@ -369,11 +371,11 @@ Vou todos os dias ao ginasio. = I go to the gym everyday.
 
 95
 nada = nothing = "nahdoe"
-Nao e nada = It's nothing
+Nao e nada. = It's nothing.
 
 96
-alguem = someone / anyone
-Esta aqui alguem? = Is someone here? / Is anyone here?
+alguém = someone / anyone
+Esta alguém aqui? = Is someone here? / Is anyone here?
 
 97
 algo = something / anything

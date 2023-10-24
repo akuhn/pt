@@ -46,14 +46,22 @@ DATABASE.execute %{
   )
 }
 
-def breakdown_by_words(en = false)
-  $data ||= (DATABASE.execute 'select * from quiz_v2').group_by(&:first)
-  $data
-    .select { |k,vx| k =~ /a$/ }
-    .map { |k,vx| [vx[0][1], (vx[0][2] if en), 1.0 * vx.sum { |ea| ea[4] } /  vx.length].compact }
-    .sort_by(&:last)
+class Result < Struct.new(:key, :pt, :en, :dir, :success, :answer, :ts)
+
+  def fail?
+    success == 0
+  end
+
+  def win?
+    success == 1
+  end
+
+  def ask
+    dir.to_sym
+  end
 end
 
+results = DATABASE.execute('SELECT * FROM `quiz_v2`').map { |each| Result.new *each }.group_by(&:key)
 binding.pry if Options.include? :interactive
 
 # Engage the user with a randomized translation challenge, offering immediate
@@ -63,18 +71,25 @@ correct = 0
 wrong = 0
 
 words.entries.shuffle.each do |key, each|
-  pt, en = [:pt, :en].shuffle
-  puts "Translate to #{en.upcase}: #{each[pt]}"
+  word, ask = [:pt, :en].shuffle
+  puts "Translate to #{ask.upcase}: #{each[word]}"
   answer = gets.strip
 
-  expected = each[en].downcase.split('/').map(&:strip)
-  success = expected.include? answer.downcase
+  expected = each[ask].downcase.split('/').map(&:strip)
+  success = expected.include?(answer.downcase)
 
   if success
     puts "Correct!"
     correct += 1
   else
-    puts "Wrong, the correct answer is\n#{each[en]}"
+    previous_answers = results.fetch(key, [])
+      .select { |r| r.fail? and r.ask == ask }
+      .map(&:answer)
+      .compact
+
+    puts previous_answers if previous_answers.any?
+    puts "Wrong, the correct answer is:\n#{each[ask]}"
+    puts
     wrong += 1
   end
 
@@ -83,7 +98,7 @@ words.entries.shuffle.each do |key, each|
   DATABASE.execute %{
     INSERT INTO `quiz_v2` (`reference`, `pt`, `en`, `dir`, `success`, `answer`)
     VALUES (?, ?, ?, ?, ?, ?)
-  }, [key, each[:pt], each[:en], en.to_s, success ? 1 : 0, (answer unless success)]
+  }, [key, each[:pt], each[:en], ask.to_s, success ? 1 : 0, (answer unless success)]
 
   print 100 * correct / (correct + wrong)
   print '%'

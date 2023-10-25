@@ -51,33 +51,55 @@ DATABASE.execute %{
 class Result < Struct.new(:key, :pt, :en, :ask, :success, :answer, :ts)
 end
 
-results = DATABASE.execute('SELECT * FROM `quiz_v2`')
+data = DATABASE.execute('SELECT * FROM `quiz_v2`')
   .map { |key, pt, en, ask, success, answer, ts|
     Result.new key, pt, en, ask.to_sym, success == 1, answer, ts
   }
   .sort_by(&:ts).reverse
 
-successes = []
-probabilities = results
-  .group_by { |each| [each.key, each.ask] }
-  .map { |k, group|
-    if group.empty?
-      [k, 1]
-    elsif group.first.success
-      successes << [k, group.first.ts]
-      [k, nil]
-    else
-      [k, 2 ** group.take(3).reject(&:success).count]
-    end
-  }
-  .to_h
-max_p = probabilities.values.compact.max
-successes.sort_by(&:last).reverse.map(&:first).each_with_index do |k, n|
-  p = max_p * ((1.0 * n / successes.length) ** 3)
-  raise if probabilities[k]
-  probabilities[k] = p
+results = data.group_by { |each| [each.key, each.ask] }
+
+partitions = results.group_by do |_, answers|
+  case answers.take_while(&:success).length
+  when 0
+    :fail
+  when 1
+    :success
+  else
+    :streak
+  end
 end
 
+def assign_adaptive_learning_probabilities(array)
+  probabilities = {}
+  array
+    .map(&:first)
+    .each_with_index { |combo, n|
+      probabilities[combo] = (1.0 * n / array.length) ** 2
+    }
+
+  return probabilities
+end
+
+streaks_weighted_by_age =  assign_adaptive_learning_probabilities(
+  partitions[:streak].sort_by { |combo, rx| rx.first.ts }.reverse
+)
+
+successes_weighted_by_recency = assign_adaptive_learning_probabilities(
+  partitions[:success].sort_by { |combo, rx| rx.first.ts }
+)
+
+failures_weighted_by_count_and_age =  assign_adaptive_learning_probabilities(
+  partitions[:fail].sort_by { |combo, rx|
+    [rx.take(3).reject(&:success).count, rx.first.ts].reverse
+  }
+)
+
+probabilities = Hash.new.merge(
+  streaks_weighted_by_age,
+  successes_weighted_by_recency,
+  failures_weighted_by_count_and_age,
+)
 
 binding.pry if Options.include? :interactive
 
@@ -85,14 +107,13 @@ binding.pry if Options.include? :interactive
 # Engage the user with a randomized translation challenge, offering immediate
 # feedback and vocal pronunciation, while recording his performance.
 
-results_index = results.group_by(&:key)
 correct = 0
 wrong = 0
 
 words.entries.shuffle.each do |key, each|
-  if (max_p * rand) < probabilities.fetch([key, :pt], 1.0)
+  if rand < probabilities.fetch([key, :pt], 0.5)
     word, ask = :en, :pt
-  elsif (max_p * rand) < probabilities.fetch([key, :en], 1.0)
+  elsif rand < probabilities.fetch([key, :en], 0.5)
     word, ask = :pt, :en
   else
     next
@@ -108,14 +129,13 @@ words.entries.shuffle.each do |key, each|
     puts "Correct!"
     correct += 1
   else
-    previous_answers = results_index.fetch(key, [])
-      .select { |r| r.success == false and r.ask == ask }
+    previous_answers = results.fetch([key, ask], [])
+      .reject(&:success)
       .map(&:answer)
       .compact
 
     puts previous_answers if previous_answers.any?
     puts "Wrong, the correct answer is:\n#{each[ask]}"
-    puts
     wrong += 1
   end
 

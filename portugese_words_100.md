@@ -53,7 +53,7 @@ As pessoas estão a espera. = The people are waiting.
 
 14
 Verdade = Truth / true
-E verdade! = It's true!
+É verdade! = It's true!
 
 15
 Trabalho = work = Troebahlyoo
@@ -113,7 +113,7 @@ A semana foi fantastica! = It was a great week!
 
 29
 Fim-de-semana = Weekend = "Fingdoesoemana"
-Bom fim-de-semana! = Have a good weekend!
+Bom fim-de-semana! = Good weekend!
 
 30
 Dois = Two
@@ -212,8 +212,8 @@ ou = or = "ohoo"
 Queres o bolo ou a tarte? = Do you want the cake or the tarte?
 
 54
-nao = no = "nahoo"
-Noa, obrigado. = No, thank you.
+não = no = "nahoo"
+Não, obrigado. = No, thank you.
 
 55
 sim = yes = "sing"
@@ -272,7 +272,7 @@ So quero um cafe. = I just want a coffee.
 
 70
 Agora = now = "oegohrah"
-Vou agora a loja. = I'm going to the shop now.
+Vou agora a loja. = I'm going to the store now.
 
 71
 la = there
@@ -311,7 +311,7 @@ Tambem vou ao concerto. = I'm also going to the concert.
 
 80
 talvez = maybe
-Talvez, va as compras. = Maybe I will go to the shops.
+Talvez, va as compras. = Maybe I will go shopping.
 
 81
 nem = neither / nor

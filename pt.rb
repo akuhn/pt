@@ -150,6 +150,8 @@ words.entries.shuffle.each do |key, each|
   print '%'
   puts
   puts
+
+  break if (correct + wrong) == 25
 end
 
 puts "Results:"

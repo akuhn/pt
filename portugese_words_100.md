@@ -93,7 +93,7 @@ Um momento, por favor. = A moment, please.
 
 24
 Cidade = City
-Nao conheço a cidade. = I don't know the city.
+Não conheço a cidade. = I don't know the city.
 
 25
 Minuto = minute
@@ -295,7 +295,7 @@ Entao, como estas? = Hey, how are you?
 
 76
 mesmo = same / really, really = "mehzhmoo"
-Estou mesmo cansada. = I'm really, really tired.
+Estou mesmo cansado. = I'm really, really tired.
 
 77
 nunca = never
@@ -311,7 +311,7 @@ Tambem vou ao concerto. = I'm also going to the concert.
 
 80
 talvez = maybe
-Talvez, va as compras. = Maybe I will go shopping.
+Talvez va as compras. = Maybe I will go shopping.
 
 81
 nem = neither / nor
@@ -347,7 +347,7 @@ Amanhã e um novo dia. = Tomorrow is a new day.
 
 89
 menos = less
-Hoje estou menos cansada. = Today I'm less tired.
+Hoje estou menos cansado. = Today I'm less tired.
 
 90
 dentro = inside
@@ -371,7 +371,7 @@ Vou todos os dias ao ginasio. = I go to the gym everyday.
 
 95
 nada = nothing = "nahdoe"
-Nao e nada. = It's nothing.
+Não e nada. = It's nothing.
 
 96
 alguém = someone / anyone
@@ -387,7 +387,7 @@ Claro, sem problema! = Of course, no problem!
 
 99
 ningeum = nobody
-Nao vi ninguem na rua. = I don't see anyone on the street.
+Não vi ninguem na rua. = I don't see anyone on the street.
 
 100
 Comigo = with me

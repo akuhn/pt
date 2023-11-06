@@ -65,7 +65,7 @@ O dinheiro esta na mesa. = The money is on the table. = "Oo dinyeiroo shta na my
 
 17
 Nome = Name
-Qual o nome do hotel? = What is the name of the hotel? ="Kwall eh oo nom doo otel"
+Qual é o nome do hotel? = What is the name of the hotel? ="Kwall eh oo nom doo otel"
 
 18
 Mundo = World
@@ -303,7 +303,7 @@ Nunca fui a paris. = I've never been to paris.
 
 78
 ainda = still
-Ainsa estas aqui? = Are you still here?
+Ainda estas aqui? = Are you still here?
 
 79
 tambem = as well / also
@@ -311,7 +311,7 @@ Tambem vou ao concerto. = I'm also going to the concert.
 
 80
 talvez = maybe
-Talvez va as compras. = Maybe I will go shopping.
+Talvez va as compras. = Maybe I'll go shopping.
 
 81
 nem = neither / nor

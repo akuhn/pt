@@ -83,6 +83,13 @@ class Quiz
   # Analyze past answers to assign adaptive learning probabilities to each
   # word, ensuring a personalized and efficient learning path by focusing
   # on frequent stumbling blocks and reinforcing past successes.
+  #
+  # Older entries are revisited to ensure retention over time, while recent
+  # correct answers and streaks of fewer than three failures are boosted to
+  # optimize learning focus, which means that successes are reinforced but
+  # not overemphasized and minor setbacks are addressed promptly to aid in
+  # quick recovery, this ensures a balanced review schedule that aids long-
+  # term memory retention and efficient mastery of the material.
 
   def assign_adaptive_learning_probabilities
     partitions = @results.values.group_by do |answers|
@@ -142,7 +149,7 @@ class Quiz
 
     @words.values.shuffle.each do |each|
       lang = [:pt, :en].shuffle.find { |code|
-        rand < @probabilities.fetch([each.reference, code], 0.5)
+        rand < @probabilities.fetch([each.reference, code], 0.618)
       }
       next unless lang
 

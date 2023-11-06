@@ -104,8 +104,8 @@ Hora = hour
 Vai demorar una hora. = It will take an hour.
 
 27
-Cuidado = careful = Kweedadoo
-Tenham cuidado. = Take care. / be careful.
+cuidado = careful = Kweedadoo
+Tenha cuidado! = Take care! / Be careful!
 
 28
 Semana = Week =
@@ -243,8 +243,8 @@ pois = well then / right = "Poheesh"
 Pois e. = Yeah, that's true. / Yeah, it is. = "Pohihz eh"
 
 63
-A serio? = really?
-A serio? Noa sabrio. = Really, I did not know.
+serio = really
+A serio? Eu não sabia. = Really, I didn't know.
 
 64
 bem = well
@@ -379,7 +379,7 @@ Esta alguém aqui? = Is someone here? / Is anyone here?
 
 97
 algo = something / anything
-Tens algo de comer? = Have you got anything to eat?
+Tens algo para comer? = Have you got anything to eat?
 
 98
 claro = of course

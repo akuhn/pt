@@ -2,10 +2,9 @@ require 'pry'
 require 'sqlite3'
 require 'options_by_example'
 
-
 Options = OptionsByExample.new("Usage: $0 [-i, --interactive]").parse(ARGV)
 
-DATABASE = SQLite3::Database.new('portugese_words_100.sqlite')
+database = 'portugese_words_100.sqlite'
 fname = 'portugese_words_100.md'
 
 
@@ -36,6 +35,8 @@ end
 # adaptive learning experiences that optimize repetitions and focus on areas of
 # improvement, enabling more effective and personalized learning journeys.
 
+DATABASE = SQLite3::Database.new(database)
+
 DATABASE.execute %{
   CREATE TABLE IF NOT EXISTS `quiz_v2` (
       `reference` VARCHAR(8),
@@ -51,26 +52,15 @@ DATABASE.execute %{
 class Result < Struct.new(:key, :pt, :en, :ask, :success, :answer, :ts)
 end
 
-data = DATABASE.execute('SELECT * FROM `quiz_v2`')
+results = DATABASE.execute('SELECT * FROM `quiz_v2`')
   .map { |key, pt, en, ask, success, answer, ts|
     Result.new key, pt, en, ask.to_sym, success == 1, answer, ts
   }
   .sort_by(&:ts).reverse
+  .group_by { |each| [each.key, each.ask] }
 
-results = data.group_by { |each| [each.key, each.ask] }
 
-partitions = results.group_by do |_, answers|
-  case answers.take_while(&:success).length
-  when 0
-    :fail
-  when 1
-    :success
-  else
-    :streak
-  end
-end
-
-def assign_adaptive_learning_probabilities(array)
+def calculate_normalize_squared_index(array)
   probabilities = {}
   array
     .map(&:first)
@@ -81,25 +71,40 @@ def assign_adaptive_learning_probabilities(array)
   return probabilities
 end
 
-streaks_weighted_by_age =  assign_adaptive_learning_probabilities(
-  partitions[:streak].sort_by { |combo, rx| rx.first.ts }.reverse
-)
+def assign_adaptive_learning_probabilities(results)
+  partitions = results.group_by do |_, answers|
+    case answers.take_while(&:success).length
+    when 0
+      :fail
+    when 1
+      :success
+    else
+      :streak
+    end
+  end
 
-successes_weighted_by_recency = assign_adaptive_learning_probabilities(
-  partitions[:success].sort_by { |combo, rx| rx.first.ts }
-)
+  streaks_weighted_by_age =  calculate_normalize_squared_index(
+    partitions[:streak].sort_by { |combo, rx| rx.first.ts }.reverse
+  )
 
-failures_weighted_by_count_and_age =  assign_adaptive_learning_probabilities(
-  partitions[:fail].sort_by { |combo, rx|
-    [rx.take(3).reject(&:success).count, rx.first.ts].reverse
-  }
-)
+  successes_weighted_by_recency = calculate_normalize_squared_index(
+    partitions[:success].sort_by { |combo, rx| rx.first.ts }
+  )
 
-probabilities = Hash.new.merge(
-  streaks_weighted_by_age,
-  successes_weighted_by_recency,
-  failures_weighted_by_count_and_age,
-)
+  failures_weighted_by_count_and_age =  calculate_normalize_squared_index(
+    partitions[:fail].sort_by { |combo, rx|
+      [rx.take(3).reject(&:success).count, rx.first.ts]
+    }.reverse
+  )
+
+  Hash.new.merge(
+    streaks_weighted_by_age,
+    successes_weighted_by_recency,
+    failures_weighted_by_count_and_age,
+  )
+end
+
+probabilities = assign_adaptive_learning_probabilities(results)
 
 binding.pry if Options.include? :interactive
 

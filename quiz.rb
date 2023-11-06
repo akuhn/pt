@@ -88,12 +88,8 @@ class Quiz
     partitions = @results.values.group_by do |answers|
       case answers.take_while(&:success).length
       when 0
-        case answers.take_while(&:failure).length
-        when 0..2
-          :failure
-        else
-          :failure_streak
-        end
+        streak = answers.take_while(&:failure).length
+        streak % 3 == 0 ? :failure_streak : :failure
       when 1
         :success
       else
@@ -160,10 +156,10 @@ class Quiz
     puts "Wrong\t#{@wrong}"
   end
 
-  # Pose a targeted translation question to the user, evaluate the response for
+  # Ask a targeted translation question to the user, evaluate the response for
   # accuracy, offer corrective feedback with prior incorrect attempts and use
   # speech-synthesis to reinforce learning through auditory exposure, all while
-  # tracking the performance to further personalize future learning sessions.
+  # tracking the performance to personalize future learning sessions.
 
   def ask_question(reference, lang)
     word = @words[reference]

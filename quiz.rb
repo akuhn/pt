@@ -45,9 +45,13 @@ class Quiz
   # objects with unique identifiers for quick access during the quiz.
 
   def load_words_from_file(fname)
+    load_words_from_string File.read(fname)
+  end
+
+  def load_words_from_string(content)
     num, letter = nil, nil
 
-    File.foreach(fname) do |line|
+    content.each_line do |line|
       if line =~ /^\d+/
         num = (Integer line)
         letter = 'a'
@@ -73,7 +77,7 @@ class Quiz
         Result.new reference, pt, en, lang.to_sym, success == 1, answer, ts
       }
       .sort_by(&:ts).reverse
-      .group_by { |each| [each.reference, each.lang] }
+      .group_by(&:reference_ext)
   end
 
   # Analyze past answers to assign adaptive learning probabilities to each
@@ -81,28 +85,22 @@ class Quiz
   # on frequent stumbling blocks and reinforcing past successes.
 
   def assign_adaptive_learning_probabilities
-    partitions = @results.group_by do |_, answers|
-      case answers.take_while(&:success).length
-      when 0
-        :fail
-      when 1
-        :success
-      else
-        :streak
-      end
+    partitions = @results.values.group_by do |answers|
+      streak = answers.take_while(&:success).length
+      [:fail, :success][streak] or :streak
     end
 
-    streaks_weighted_by_age =  calculate_normalize_squared_index(
-      partitions[:streak].sort_by { |combo, rx| rx.first.ts }.reverse
+    streaks_weighted_by_age =  apply_weighting_function(
+      partitions[:streak].sort_by { |answers| answers.first.ts }.reverse
     )
 
-    successes_weighted_by_recency = calculate_normalize_squared_index(
-      partitions[:success].sort_by { |combo, rx| rx.first.ts }
+    successes_weighted_by_recency = apply_weighting_function(
+      partitions[:success].sort_by { |answers| answers.first.ts }
     )
 
-    failures_weighted_by_count_and_age =  calculate_normalize_squared_index(
-      partitions[:fail].sort_by { |combo, rx|
-        [rx.take(3).reject(&:success).count, rx.first.ts]
+    failures_weighted_by_count_and_age =  apply_weighting_function(
+      partitions[:fail].sort_by { |answers|
+        [answers.take(3).reject(&:success).count, answers.first.ts]
       }.reverse
     )
 
@@ -111,6 +109,19 @@ class Quiz
       successes_weighted_by_recency,
       failures_weighted_by_count_and_age,
     )
+  end
+
+  # Assign weighted probabilities for quiz questions based on their position
+  # in an array, enabling a frequency-based selection that adapts to the user's
+  # learning progress.
+
+  def apply_weighting_function(array)
+    probabilities = {}
+    array.each_with_index { |answers, n|
+      probabilities[answers.first.reference_ext] = (1.0 * n / array.length) ** 2
+    }
+
+    return probabilities
   end
 
   # Execute the quiz session, dynamically selecting questions based on adaptive
@@ -180,23 +191,6 @@ class Quiz
     puts
     puts
   end
-
-  private
-
-  # Calculate weighted probabilities for quiz questions based on their position
-  # in an array, enabling a frequency-based selection that adapts to the user's
-  # learning progress.
-
-  def calculate_normalize_squared_index(array)
-    probabilities = {}
-    array
-      .map(&:first)
-      .each_with_index { |combo, n|
-        probabilities[combo] = (1.0 * n / array.length) ** 2
-      }
-
-    return probabilities
-  end
 end
 
 
@@ -221,6 +215,10 @@ end
 # and adjusting future question probabilities.
 
 class Result < Struct.new(:reference, :pt, :en, :lang, :success, :answer, :ts)
+
+  def reference_ext
+    [reference, lang]
+  end
 end
 
 

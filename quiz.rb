@@ -1,6 +1,12 @@
 require 'sqlite3'
 
 
+# Serves as the central hub for the language learning script: handling tasks
+# such as connecting to the database and reading vocabulary files, as well as
+# tracking how well the user is doing and adjusting the difficulty level based
+# on the user's learning progress, all to make the language learning process
+# smooth and user-friendly.
+
 class Quiz
 
   attr_reader :correct
@@ -10,7 +16,12 @@ class Quiz
   attr_reader :results
   attr_reader :words
 
+
+  # Set up the initial environment for the quiz, establishing a database connection
+  # and preparing the necessary data structures for for result tracking.
+
   def initialize(database)
+
     @db = SQLite3::Database.new(database)
     @words = Hash.new
     @correct = 0
@@ -28,6 +39,10 @@ class Quiz
       )
     }
   end
+
+
+  # Read a file containing word pairs, parse and instantiate them into Word
+  # objects with unique identifiers for quick access during the quiz.
 
   def load_words_from_file(fname)
     num, letter = nil, nil
@@ -47,6 +62,11 @@ class Quiz
     end
   end
 
+
+  # Retrieve historical quiz answers data from the database, constructing
+  # Result objects that provide insight into language learning patterns
+  # and facilitate the identification of learning trends.
+
   def load_results_from_database
     @results = @db.execute('SELECT * FROM `quiz_v2`')
       .map { |reference, pt, en, lang, success, answer, ts|
@@ -56,16 +76,9 @@ class Quiz
       .group_by { |each| [each.reference, each.lang] }
   end
 
-  def calculate_normalize_squared_index(array)
-    probabilities = {}
-    array
-      .map(&:first)
-      .each_with_index { |combo, n|
-        probabilities[combo] = (1.0 * n / array.length) ** 2
-      }
-
-    return probabilities
-  end
+  # Analyze past answers to assign adaptive learning probabilities to each
+  # word, ensuring a personalized and efficient learning path by focusing
+  # on frequent stumbling blocks and reinforcing past successes.
 
   def assign_adaptive_learning_probabilities
     partitions = @results.group_by do |_, answers|
@@ -100,6 +113,10 @@ class Quiz
     )
   end
 
+  # Execute the quiz session, dynamically selecting questions based on adaptive
+  # probabilities, providing real-time feedback and limiting to 25 questions to
+  # maintain user engagement and focus.
+
   def run(num = 25)
     @correct = 0
     @wrong = 0
@@ -122,6 +139,11 @@ class Quiz
     puts "Correct: #{@correct}"
     puts "Wrong: #{@wrong}"
   end
+
+  # Pose a targeted translation question to the user, evaluate the response for
+  # accuracy, offer corrective feedback with prior incorrect attempts and use
+  # speech-synthesis to reinforce learning through auditory exposure, all while
+  # tracking the performance to further personalize future learning sessions.
 
   def ask_question(reference, lang)
     word = @words[reference]
@@ -158,8 +180,29 @@ class Quiz
     puts
     puts
   end
+
+  private
+
+  # Calculate weighted probabilities for quiz questions based on their position
+  # in an array, enabling a frequency-based selection that adapts to the user's
+  # learning progress.
+
+  def calculate_normalize_squared_index(array)
+    probabilities = {}
+    array
+      .map(&:first)
+      .each_with_index { |combo, n|
+        probabilities[combo] = (1.0 * n / array.length) ** 2
+      }
+
+    return probabilities
+  end
 end
 
+
+# Represents a bilingual vocabulary unit with reference identifiers, offering
+# methods to get the appropriate question and answer depending on the language
+# direction, serving as a fundamental building block for quiz content.
 
 class Word < Struct.new(:reference, :pt, :en)
 
@@ -173,5 +216,13 @@ class Word < Struct.new(:reference, :pt, :en)
 end
 
 
+# Keeps track of previous quiz performance, recording linguistic pairings,
+# outcome success and timestamps, which are crucial for monitoring progress
+# and adjusting future question probabilities.
+
 class Result < Struct.new(:reference, :pt, :en, :lang, :success, :answer, :ts)
 end
+
+
+# And, that's it, good luck!
+

@@ -10,7 +10,7 @@ Options = OptionsByExample.new("Usage: $0 [-i, --interactive] [--top10]").parse(
 # references for easy retrieval in the performance database.
 
 quiz = Quiz.new('portugese_words_100.sqlite')
-quiz.load_words_from_file 'portugese_words_100.md'
+quiz.load_words_from_file 'portugese_words_100.txt'
 
 
 # Keep a database with quiz results for tracking progress over time, enabling

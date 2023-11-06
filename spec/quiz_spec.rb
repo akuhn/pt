@@ -4,7 +4,7 @@ RSpec.describe Quiz do
 
   it 'should load the example file' do
     quiz = Quiz.new(':memory:')
-    quiz.load_words_from_file 'portugese_words_100.md'
+    quiz.load_words_from_file 'portugese_words_100.txt'
 
     (expect quiz.words['1.a'].pt).to eq 'Coisa'
     (expect quiz.words['1.a'].en).to eq 'Thing'

@@ -1,12 +1,14 @@
 # Portuguese Language Quiz
 
-Olá amigos, I've recently started learning European Portuguese and along the way created this little script, it’s a simple language quiz and I’m sharing it with the hope that others might find it useful too.
+Olá amigos, I've recently started learning European Portuguese and along the way crafted this little script, it’s a simple language quiz and I’m sharing it with the hope that others might find it useful too.
 
 It quizzes you on 100 common words and phrases.
 
+I've taken them from this video, https://youtu.be/kum5d6I8KR4
+
 ### Getting Started
 
-Ensure you have Ruby installed on your Mac, then clone the repository and you’re good to go.
+Ensure you have Ruby installed on your Mac, then clone the repository and you’re good to go,
 
     git clone https://github.com/akuhn/pt
     cd pt
@@ -32,7 +34,7 @@ Here is the relevant code snippet:
       (boost_ancient_entries partitions[:failure_streak]),
     )
 
-For a more detailed understanding and to see the full mechanics of how it works, please feel free to check out the provided source code.
+To see the full mechanics of how it works, please feel free to check out the source code.
 
 
 Enjoy the journey and happy learning!

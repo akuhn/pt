@@ -237,6 +237,3 @@ class Result < Struct.new(:reference, :pt, :en, :lang, :success, :answer, :ts)
   end
 end
 
-
-# And, that's it, good luck!
-

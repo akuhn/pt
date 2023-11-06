@@ -2,6 +2,7 @@ require 'pry'
 require 'options_by_example'
 
 require './quiz'
+require './reports'
 
 
 Options = OptionsByExample.new("Usage: $0 [-i, --interactive] [--top10]").parse(ARGV)
@@ -18,41 +19,18 @@ quiz.load_words_from_file 'portugese_words_100.txt'
 # improvement, enabling more effective and personalized learning journeys.
 
 quiz.load_results_from_database
-@probabilities = quiz.assign_adaptive_learning_probabilities
+quiz.assign_adaptive_learning_probabilities
+
+quiz.print_top_ten_failures and exit if Options.include? :top10
 
 binding.pry if Options.include? :interactive
-
-if Options.include? :top10
-
-  top_failures = quiz.results.values
-    # .select { |answers| answers.first.reference.end_with? ?a }
-    .sort_by { |answers|
-      answers.map.with_index { |each, n| each.failure ? 0.618 ** n : 0 }.sum
-    }
-    .reverse
-    .take(10)
-
-  puts "# Top Ten Areas of Improvement"
-  puts
-
-  top_failures.each do |answers|
-
-    lang = answers.first.lang
-    word = quiz.words[answers.first.reference]
-
-    puts "Translate to #{lang.upcase}: #{word.question(lang)}"
-    puts answers.map(&:answer).compact.map(&:strip).reject(&:empty?)
-    puts "Wrong, the correct answer is:\n#{word.answer(lang)}"
-    puts "0%"
-    puts
-  end
-
-  exit
-end
 
 
 # Engage the user with a randomized translation challenge, offering immediate
 # feedback and vocal pronunciation, while recording his performance.
 
 quiz.run num = 25
+
+
+# And that's it, good luck!
 

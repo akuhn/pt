@@ -104,6 +104,8 @@ class Quiz
       end
     end
 
+    partitions.default = []
+
     @probabilities = Hash.new.merge(
       (boost_ancient_entries partitions[:streak]),
       (boost_recent_and_ancient_entries partitions[:success]),

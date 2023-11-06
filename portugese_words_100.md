@@ -25,7 +25,7 @@ Como se chama o teu pai? = What is your fathers name? = "Komoo se shama oo teh-o
 
 7
 Mãe = Mother
-A minha mãe e inglesa. = My mother is English.
+A minha mãe é inglesa. = My mother is English.
 
 8
 Filho = Son
@@ -33,11 +33,11 @@ O que faz o teu filho? = What does your son do? = "Oo qoe fash oo tehoo fee-you
 
 9
 Vida = Life
-Ele esta bem na vida. = He is doing well in life.
+Ele esta bem na vida. = He's doing well in life.
 
 10
 Anos = Year
-Quantos anus tens? = How old are you?
+Quantos anos tens? = How old are you?
 
 11
 Senhor = man / gentleman
@@ -65,11 +65,11 @@ O dinheiro esta na mesa. = The money is on the table. = "Oo dinyeiroo shta na my
 
 17
 Nome = Name
-Qual e o nome do hotel? = What is the name of the hotel? ="Kwall eh oo nom doo otel"
+Qual o nome do hotel? = What is the name of the hotel? ="Kwall eh oo nom doo otel"
 
 18
 Mundo = World
-Ela e a melhor jogadora do mundo. = She is the best player in the world. = "Ella e a meyor shegedora doo moondoo
+Ela é a melhor jogadora do mundo. = She is the best player in the world. = "Ella e a meyor shegedora doo moondoo
 
 19
 Certeza = Certainty
@@ -177,11 +177,11 @@ certo = correct / certain
 
 45
 grande = big
-A casa e muito grande. = The house is very big.
+A casa é muito grande. = The house is very big.
 
 46
 novo = new = "nohvoo"
-Ele e o novo vizinho. = He is the new neighbour. = "Ell eh oo nohvoo vihzihnyoo"
+Ele é o novo vizinho. = He is the new neighbour. = "Ell eh oo nohvoo vihzihnyoo"
 
 47
 otimo = great = "Ohtihmoo"
@@ -244,7 +244,7 @@ Pois e. = Yeah, that's true. / Yeah, it is. = "Pohihz eh"
 
 63
 serio = really
-A serio? Eu não sabia. = Really, I didn't know.
+A serio? Eu não sabia. = Really? I didn't know.
 
 64
 bem = well
@@ -339,7 +339,7 @@ estou livre hoje. = I'm free today.
 
 87
 Ontem = yesterday
-Ontem fui ao medico. = Yestday I went to the doctor.
+Ontem fui ao medico. = Yesterday I went to the doctor.
 
 88
 Amanhã = tomorrow = "ahmahnyang"
@@ -371,7 +371,7 @@ Vou todos os dias ao ginasio. = I go to the gym everyday.
 
 95
 nada = nothing = "nahdoe"
-Não e nada. = It's nothing.
+Não é nada. = It's nothing.
 
 96
 alguém = someone / anyone

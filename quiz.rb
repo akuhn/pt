@@ -145,13 +145,10 @@ class Quiz
     @wrong = 0
 
     @words.values.shuffle.each do |each|
-      if rand < @probabilities.fetch([each.reference, :pt], 0.5)
-        lang = :pt
-      elsif rand < @probabilities.fetch([each.reference, :en], 0.5)
-        lang = :en
-      else
-        next
-      end
+      lang = [:pt, :en].shuffle.find { |code|
+        rand < @probabilities.fetch([each.reference, code], 0.5)
+      }
+      next unless lang
 
       ask_question each.reference, lang
 
@@ -159,8 +156,8 @@ class Quiz
     end
 
     puts "Results:"
-    puts "Correct: #{@correct}"
-    puts "Wrong: #{@wrong}"
+    puts "Correct\t#{@correct}"
+    puts "Wrong\t#{@wrong}"
   end
 
   # Pose a targeted translation question to the user, evaluate the response for

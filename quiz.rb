@@ -89,7 +89,7 @@ class Quiz
       case answers.take_while(&:success).length
       when 0
         case answers.take_while(&:failure).length
-        when 0..1
+        when 0..2
           :failure
         else
           :failure_streak

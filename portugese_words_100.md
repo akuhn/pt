@@ -188,8 +188,8 @@ otimo = great = "Ohtihmoo"
 Estou otimo, e tu? = I'm great, and you?
 
 48
-ate = until
-Ate logo. = Until later.
+até = until
+Até logo. = Until later.
 
 49
 sem = without = "sehing"
@@ -386,8 +386,8 @@ claro = of course
 Claro, sem problema! = Of course, no problem!
 
 99
-ningeum = nobody
-Não vi ninguem na rua. = I don't see anyone on the street.
+ninguém = nobody
+Não vi ninguém na rua. = I don't see anyone on the street.
 
 100
 Comigo = with me

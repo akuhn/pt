@@ -153,7 +153,7 @@ O que te parece? = How does that seem to you? = "Oo keh toe pahrehss?"
 
 39
 preciso = I need = "Proesihsoo"
-Preciso de um favor = I need a favor
+Preciso de um favor. = I need a favor.
 
 40
 podemos = we can / can we = "Pohdehmoosh"
@@ -205,7 +205,7 @@ Comi mas tenho fome. = I ate but I'm hungry.
 
 52
 porque = because = "poorkö"
-Comprei porque gostei. = I bought it because I likeed it.
+Comprei porque gostei. = I bought it because I liked it.
 
 53
 ou = or = "ohoo"
@@ -236,7 +236,7 @@ Muito obrigado! = Thank you very much!
 
 61
 olha = look = "Ohya"
-Olha, e o miguel! = Look, it's Miguel!
+Olha, é o miguel! = Look, it's Miguel!
 
 62
 pois = well then / right = "Poheesh"
@@ -263,7 +263,7 @@ muito = very
 Estou muito feliz. = I'm very happy.
 
 68
-Ja = already = "Sha"
+ja = already = "Sha"
 Ja vi esse film. = I've already seen that movie.
 
 69
@@ -275,8 +275,8 @@ Agora = now = "oegohrah"
 Vou agora a loja. = I'm going to the store now.
 
 71
-la = there
-Fui la ontem. = I went there yesterday.
+lá = there
+Fui lá ontem. = I went there yesterday.
 
 72
 quando? = when?
@@ -315,7 +315,7 @@ Talvez va as compras. = Maybe I'll go shopping.
 
 81
 nem = neither / nor
-nem um, nem o outro = neither one nor the other
+nem um nem o outro = neither one nor the other
 
 82
 depois = afterwards
@@ -335,7 +335,7 @@ Estou cá fora. = I'm outside.
 
 86
 Hoje = today = "ozh"
-estou livre hoje. = I'm free today.
+Estou livre hoje. = I'm free today.
 
 87
 Ontem = yesterday
@@ -343,11 +343,11 @@ Ontem fui ao medico. = Yesterday I went to the doctor.
 
 88
 Amanhã = tomorrow = "ahmahnyang"
-Amanhã e um novo dia. = Tomorrow is a new day.
+Amanhã é um novo dia. = Tomorrow is a new day.
 
 89
 menos = less
-Hoje estou menos cansado. = Today I'm less tired.
+Estou menos cansado hoje. = I'm less tired today.
 
 90
 dentro = inside
@@ -366,8 +366,8 @@ tudo = everything / all
 esta tudo feito. = It's all done.
 
 94
-todos = all
-Vou todos os dias ao ginasio. = I go to the gym everyday.
+todos = every / all
+Vou todos os dias ao ginásio. = I go to the gym everyday.
 
 95
 nada = nothing = "nahdoe"
